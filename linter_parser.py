@@ -9,8 +9,8 @@ class LinterStyleParser:
             ItemType.EMPTYLINE_RULESET: "parse_emptyline_rules",
             ItemType.NAMING_RULESET: "parse_naming_rules",
             ItemType.KEYWORDS: "parse_keywords",
-            ItemType.BINARY_OPS: "parse_unary_operators",
-            ItemType.UNARY_OPS: "parse_binary_operators",
+            ItemType.BINARY_OPS: "parse_binary_operators",
+            ItemType.UNARY_OPS: "parse_unary_operators",
             ItemType.SEPARATORS: "parse_separators",
         }
 
@@ -24,8 +24,6 @@ class LinterStyleParser:
                     continue
 
                 item_type = get_enum_item_by_value(ItemType, line[1:])
-                if item_type not in self.parsers_by_type.keys():
-                    raise Exception("unrecognizable type")
 
                 parser_method = getattr(self, self.parsers_by_type[item_type])
                 parser_method(f, items_dict)
@@ -43,12 +41,15 @@ class LinterStyleParser:
 
         line = next(file).strip()
         while line:
-            rule, value = line.split(":")
-            if rule not in whitepsace_ruleset.keys():
-                raise Exception("unrecognizable whitespace rule")
-
+            rule_str, value_str = line.split(":")
+            rule = get_enum_item_by_value(WhitespaceRule, rule_str)
+            value = int(value_str)
             whitepsace_ruleset[rule] = value
-            line = next(file).strip()
+
+            try:
+                line = next(file).strip()
+            except StopIteration:
+                break
 
         items_dict[ItemType.WHITESPACE_RULESET] = whitepsace_ruleset
 
@@ -63,14 +64,15 @@ class LinterStyleParser:
 
         line = next(file).strip()
         while line:
-            rule, value = line.split(":")
-            if rule not in naming_ruleset.keys():
-                raise Exception("unrecognizable naming rule")
-            if value not in NamingCase.__members__.values():
-                raise Exception("unrecognizable naming case")
+            rule_str, value_str = line.split(":")
+            rule = get_enum_item_by_value(NamingRule, rule_str)
+            value = get_enum_item_by_value(NamingCase, value_str)
+            naming_ruleset[rule] = value
 
-            naming_ruleset[rule] = get_enum_item_by_value(NamingCase, value)
-            line = next(file).strip()
+            try:
+                line = next(file).strip()
+            except StopIteration:
+                break
 
         items_dict[ItemType.NAMING_RULESET] = naming_ruleset
 

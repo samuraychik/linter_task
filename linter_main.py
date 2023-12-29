@@ -26,7 +26,8 @@ def main(argv=None):
     #     log_error(f"{args.path}: incorrect path value")
     #     sys.exit(1)
     parser = LinterStyleParser()
-    parser.parse_style_doc("pascal_rules.txt")
+    d = parser.parse_style_doc("pascal_rules.txt")
+    print(d)
 
 
 if __name__ == "__main__":
