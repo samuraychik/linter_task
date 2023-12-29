@@ -2,18 +2,20 @@ import re
 
 from linter_rules import ItemType, \
     WhitespaceRule, EmptylineRule, NamingRule, NamingCase
+from linter_logger import LinterLogger
 
 
 class Linter:
-    def __init__(self, code_style: dict):
+    def __init__(self, code_style: dict, logger: LinterLogger):
         self.whitespace_rules = code_style[ItemType.WHITESPACE_RULESET]
         self.emptyline_rules = code_style[ItemType.EMPTYLINE_RULESET]
         self.naming_rules = code_style[ItemType.NAMING_RULESET]
         self.separators = code_style[ItemType.SEPARATORS]
         self.binary_ops = code_style[ItemType.BINARY_OPS]
         self.keywords = code_style[ItemType.KEYWORDS]
+        self.logger = logger
 
-    def get_case_regex(self, case: NamingCase) -> dict:
+    def get_case_regex(self, case: NamingCase) -> str:
         case_regex = {
             NamingCase.UPPER_SNAKE_CASE: r"[A-Z][_A-Z1-9]*",
             NamingCase.SNAKE_CASE: r"[a-z][_a-z1-9]*",

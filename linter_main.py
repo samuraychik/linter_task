@@ -4,13 +4,21 @@ import sys
 
 from linter_parser import LinterStyleParser
 from linter_checker import Linter
-
+from linter_logger import LinterLogger
 
 argparser = argparse.ArgumentParser(
     description="Check your pascal code style!")
 
-argparser.add_argument("path", metavar="PATH", type=str,
-                       help="path to your file or folder")  # Заменить на получение кучи параметров
+argparser.add_argument("-s", "style_path", metavar="STYLE_PATH", nargs='+',
+                       type=str, default="pascal_rules.txt",
+                       help="path to your file with style rules")
+
+argparser.add_argument("-l", "log_path", metavar="LOG_PATH", nargs='+',
+                       type=str, default="style_check_result.txt",
+                       help="path to your file with style rules")
+
+argparser.add_argument("code_paths", metavar="PATH_TO_CODE", nargs='+',
+                       type=str, help="paths to your files or folders")
 
 
 def log_error(message):
@@ -18,18 +26,32 @@ def log_error(message):
 
 
 def main(argv=None):
-    # args = argparser.parse_args(argv)
-    # if os.path.isdir(args.path):
-    #     print("Это путь до директории")
-    # elif os.path.isfile(args.path):
-    #     print("Это путь до файла")
-    # else:
-    #     log_error(f"{args.path}: incorrect path value")
-    #     sys.exit(1)
+    args = argparser.parse_args(argv)
+    style_path = args.style_path
+    log_path = args.log_path
+    input_paths = args.code_path
+    file_paths = []
+    for path in input_paths:
+        if os.path.isdir(path):
+            file_paths += [os.path.abspath(os.path.join(args.style_path, file))
+                           for file in os.listdir(args.style_path)
+                           if os.path.isfile(
+                                os.path.join(args.style_path, file)
+                            )]
+        elif os.path.isfile(path):
+            file_paths.append(path)
+        else:
+            log_error(f"{path}: incorrect path value")
+
     parser = LinterStyleParser()
-    d = parser.parse_style_doc("pascal_rules.txt")
-    l = Linter(d)
-    l.check_all_file("test_text.txt")
+    style_dict = parser.parse_style_doc(style_path)
+
+    logger = LinterLogger(log_path)
+    linter = Linter(style_dict, logger)
+
+    for file_path in file_paths:
+        logger.log_new_header(os.path.basename(file_path))
+        linter.check_all_file(file_path)
 
 
 if __name__ == "__main__":

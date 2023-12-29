@@ -13,7 +13,7 @@ class LinterStyleParser:
             ItemType.SEPARATORS: "parse_separators",
         }
 
-    def parse_style_doc(self, filename: str) -> dict():
+    def parse_style_doc(self, filename: str) -> dict:
         items_dict = {}
 
         with open(filename, "r") as f:
