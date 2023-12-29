@@ -21,9 +21,9 @@ class CodeStyleParser:
                 line = line.strip()
                 item_type = get_item_type_by_value(line)
                 if item_type:
-                    if (item_type == ItemsType.KEYWORD
-                            or item_type == ItemsType.BINARY_OP
-                            or item_type == ItemsType.UNARY_OP):
+                    if (item_type == ItemsType.KEYWORDS
+                            or item_type == ItemsType.BINARY_OPS
+                            or item_type == ItemsType.UNARY_OPS):
                         items = next(f)
                         whitespace_rules_dict[item_type] = items.split(",")
                         print(whitespace_rules_dict[item_type])

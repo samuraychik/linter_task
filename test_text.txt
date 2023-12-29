@@ -1,0 +1,8 @@
+asdasd = sadasd
+=
+a+ b
+a-b
+3, 2, 4 = 8
+a : b
+c - b
+- v
