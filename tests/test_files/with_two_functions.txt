@@ -1,0 +1,17 @@
+var a,b:longint;
+
+function NOD(x,y:longint):longint;
+begin
+   if x<>0 then NOD:=NOD(y mod x,x) else NOD:=y;
+end;
+
+function NOK(x,y:longint):longint;
+begin
+   NOK:=( x div NOD(x,y) ) * y;
+end;
+
+begin
+    readln(a,b);
+    writeln( 'НОД этих чисел = ', NOD(a,b) );
+    writeln( 'НОК этих чисел = ', NOK(a,b) );
+end.

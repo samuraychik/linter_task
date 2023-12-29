@@ -1,0 +1,18 @@
+var a : longint;
+
+function DEC_HEX(x:longint):string;
+var res:string; d:0..15;
+begin
+   res:='';
+   while (x<>0) do begin
+      d:=x mod 16;
+      x:=x div 16;
+      res=res;
+   end;
+   DEC_HEX:=res;
+end;
+
+begin
+  readln( a );
+  writeln( DEC_HEX(a) );
+end.

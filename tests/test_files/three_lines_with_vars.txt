@@ -1,0 +1,16 @@
+var s:string;
+    R:real;
+    i,j,n:integer;
+
+begin
+    R:=0;
+    readln(s);
+    for i:=1 to length(s) do begin
+       n:=0;
+       for j:=1 to length(s) do begin
+          if s[i]=s[j] then inc(n);
+       end;
+       R:=R+1/n;
+    end;
+    writeln('количество различных букв = ', R:1:0);
+end.

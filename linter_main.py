@@ -33,10 +33,10 @@ def main(argv=None):
     file_paths = []
     for path in input_paths:
         if os.path.isdir(path):
-            file_paths += [os.path.abspath(os.path.join(args.style_path, file))
-                           for file in os.listdir(args.style_path)
+            file_paths += [os.path.abspath(os.path.join(path, file))
+                           for file in os.listdir(path)
                            if os.path.isfile(
-                                os.path.join(args.style_path, file)
+                                os.path.join(path, file)
                             )]
         elif os.path.isfile(path):
             file_paths.append(path)
