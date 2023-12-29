@@ -32,11 +32,11 @@ class LinterStyleParser:
 
     def parse_whitespace_rules(self, file, items_dict: dict) -> None:
         whitepsace_ruleset = {
-            WhitespaceRule.BEFORE_BINOP: 0,
-            WhitespaceRule.AFTER_BINOP: 0,
+            WhitespaceRule.BEFORE_BINOP: 1,
+            WhitespaceRule.AFTER_BINOP: 1,
             WhitespaceRule.AFTER_UNOP: 0,
             WhitespaceRule.BEFORE_SEP: 0,
-            WhitespaceRule.AFTER_SEP: 0,
+            WhitespaceRule.AFTER_SEP: 1,
         }
 
         line = next(file).strip()
@@ -54,12 +54,29 @@ class LinterStyleParser:
         items_dict[ItemType.WHITESPACE_RULESET] = whitepsace_ruleset
 
     def parse_emptyline_rules(self, file, items_dict: dict) -> None:
-        items_dict[ItemType.EMPTYLINE_RULESET] = dict()
+        emptyline_ruleset = {
+            EmptylineRule.BETWEEN_SUBROUTINES: 1,
+            EmptylineRule.END_OF_FILE: 0,
+            EmptylineRule.MAX_IN_A_ROW: 1,
+        }
+        
+        line = next(file).strip()
+        while line:
+            rule_str, value_str = line.split(":")
+            rule = get_enum_item_by_value(EmptylineRule, rule_str)
+            value = int(value_str)
+            emptyline_ruleset[rule] = value
+
+            try:
+                line = next(file).strip()
+            except StopIteration:
+                break
+
+        items_dict[ItemType.EMPTYLINE_RULESET] = emptyline_ruleset
 
     def parse_naming_rules(self, file, items_dict: dict) -> None:
         naming_ruleset = {
-            NamingRule.KEYWORD: None,
-            NamingRule.IDENTIFIER: None,
+            NamingRule.IDENTIFIER: NamingCase.PASCAL_CASE,
         }
 
         line = next(file).strip()

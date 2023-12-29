@@ -3,6 +3,7 @@ import os
 import sys
 
 from linter_parser import LinterStyleParser
+from linter_checker import Linter
 
 
 argparser = argparse.ArgumentParser(
@@ -27,7 +28,8 @@ def main(argv=None):
     #     sys.exit(1)
     parser = LinterStyleParser()
     d = parser.parse_style_doc("pascal_rules.txt")
-    print(d)
+    l = Linter(d)
+    l.check_all_file("test_text.txt")
 
 
 if __name__ == "__main__":

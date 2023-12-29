@@ -1,8 +1,11 @@
-asdasd = sadasd
-=
-a+ b
-a-b
-3, 2, 4 = 8
-a : b
-c - b
-- v
+procedure kek(a: integer)
+begin
+
+end
+
+
+function kek2(b: integer): integer
+begin
+
+end
+

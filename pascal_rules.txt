@@ -4,11 +4,8 @@ begin end if then else while for to do program var function procedure mod div an
 *BINARY_OPS
 := + - * / mod div = > < <> >= <= and or
 
-*UNARY_OPS
-- not
-
 *SEPARATORS
-,
+, :
 
 *WHITESPACE_RULESET
 BEFORE_BINOP:1
@@ -18,7 +15,9 @@ BEFORE_SEP:0
 AFTER_SEP:1
 
 *EMPTYLINE_RULESET
+MAX_IN_A_ROW:2
+BETWEEN_SUBROUTINES:1
+END_OF_FILE:1
 
 *NAMING_RULESET
-KEYWORD:UPPER_SNAKE_CASE
-IDENTIFIER:PascalCase
+IDENTIFIER:UPPER_SNAKE_CASE

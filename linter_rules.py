@@ -20,7 +20,9 @@ class WhitespaceRule(Enum):
 
 
 class EmptylineRule(Enum):
-    pass
+    MAX_IN_A_ROW = "MAX_IN_A_ROW"
+    BETWEEN_SUBROUTINES = "BETWEEN_SUBROUTINES"
+    END_OF_FILE = "END_OF_FILE"
 
 
 class NamingRule(Enum):
