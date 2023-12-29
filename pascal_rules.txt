@@ -1,5 +1,5 @@
 *KEYWORDS
-begin end if then else while for to do program var function procedure mod div and or not
+begin end if then else while for to do program var function procedure mod div and or not integer char word real boolean array 
 
 *BINARY_OPS
 := + - * / mod div = > < <> >= <= and or

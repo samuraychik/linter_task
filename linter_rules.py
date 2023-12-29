@@ -24,7 +24,6 @@ class EmptylineRule(Enum):
 
 
 class NamingRule(Enum):
-    KEYWORD = "KEYWORD"
     IDENTIFIER = "IDENTIFIER"
 
 
