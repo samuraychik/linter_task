@@ -1,0 +1,25 @@
+*KEYWORDS
+begin end if then else while for to do program var function procedure mod div and or not
+
+*BINARY_OPS
+:= + - * / mod div = > < <> >= <= and or
+
+*UNARY_OPS
+- not
+
+*SEPARATORS
+,
+
+*WHITESPACE_RULESET
+BEFORE_BINOP:1
+AFTER_BINOP:1
+AFTER_UNOP:0
+BEFORE_SEP:0
+AFTER_SEP:1
+INDENT:2
+
+*EMPTYLINE_RULESET
+
+*NAMING_RULESET
+KEYWORD:CAPS
+IDENTIFIER:CamelCase

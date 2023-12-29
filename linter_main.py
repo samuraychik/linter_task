@@ -1,7 +1,9 @@
 import argparse
 import os
 import sys
-from linter_parser import CodeStyleParser
+
+from linter_parser import LinterStyleParser
+
 
 argparser = argparse.ArgumentParser(
     description="Check your pascal code style!")
@@ -23,8 +25,8 @@ def main(argv=None):
     # else:
     #     log_error(f"{args.path}: incorrect path value")
     #     sys.exit(1)
-    parser = CodeStyleParser()
-    parser.parse_style_doc("code_style.txt")
+    parser = LinterStyleParser()
+    parser.parse_style_doc("pascal_rules.txt")
 
 
 if __name__ == "__main__":
