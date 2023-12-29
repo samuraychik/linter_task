@@ -1,25 +1,41 @@
 from enum import Enum
 
 
+class ItemType(Enum):
+    KEYWORDS = "KEYWORDS"
+    BINARY_OPS = "BINARY_OPS"
+    UNARY_OPS = "UNARY_OPS"
+    SEPARATORS = "SEPARATORS"
+    WHITESPACE_RULESET = "WHITESPACE_RULESET"
+    EMPTYLINE_RULESET = "EMPTYLINE_RULESET"
+    NAMING_RULESET = "NAMING_RULESET"
+
+
 class WhitespaceRule(Enum):
-    BEFORE_BINOP = "before_binop"
-    AFTER_BINOP = "after_binop"
-    AFTER_UNOP = "after_unop"
-    BEFORE_SEP = "before_sep"
-    AFTER_SEP = "after_sep"
+    BEFORE_BINOP = "BEFORE_BINOP"
+    AFTER_BINOP = "AFTER_BINOP"
+    AFTER_UNOP = "AFTER_UNOP"
+    BEFORE_SEP = "BEFORE_SEP"
+    AFTER_SEP = "AFTER_SEP"
 
 
-class ItemsType(Enum):
-    KEYWORDS = "*KEYWORDS:"
-    BINARY_OPS = "*BINARY-OPS:"
-    UNARY_OPS = "*UNARY-OPS:"
-    SEPARATORS = "*SEPARATORS:"
-    WHITESPACE_RULESET = "*WHITESPACE-RULESET:"
-    EMPTYLINE_RULESET = "*EMPTYLINE-RULESET:"
-    NAMING_RULESET = "*NAMING-RULESET:"
+class EmptylineRule(Enum):
+    pass
 
 
-def get_item_type_by_value(value: str):
-    for item_type in ItemsType.__members__.values():
-        if item_type.value == value:
-            return item_type
+class NamingRule(Enum):
+    KEYWORD = "KEYWORD"
+    IDENTIFIER = "IDENTIFIER"
+
+
+class NamingCase(Enum):
+    SNAKE_CASE = "snake_case"
+    UPPER_SNAKE_CASE = "UPPER_SNAKE_CASE"
+    PASCAL_CASE = "PascalCase"
+    CAMEL_CASE = "camelCase"
+
+
+def get_enum_item_by_value(enum: type, value: str):
+    for item in enum.__members__.values():
+        if item.value == value:
+            return item
