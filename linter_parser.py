@@ -10,7 +10,6 @@ class LinterStyleParser:
             ItemType.NAMING_RULESET: "parse_naming_rules",
             ItemType.KEYWORDS: "parse_keywords",
             ItemType.BINARY_OPS: "parse_binary_operators",
-            ItemType.UNARY_OPS: "parse_unary_operators",
             ItemType.SEPARATORS: "parse_separators",
         }
 
@@ -34,7 +33,6 @@ class LinterStyleParser:
         whitepsace_ruleset = {
             WhitespaceRule.BEFORE_BINOP: 1,
             WhitespaceRule.AFTER_BINOP: 1,
-            WhitespaceRule.AFTER_UNOP: 0,
             WhitespaceRule.BEFORE_SEP: 0,
             WhitespaceRule.AFTER_SEP: 1,
         }
@@ -98,9 +96,6 @@ class LinterStyleParser:
 
     def parse_binary_operators(self, file, items_dict: dict) -> None:
         self.parse_items_list(file, items_dict, ItemType.BINARY_OPS)
-
-    def parse_unary_operators(self, file, items_dict: dict) -> None:
-        self.parse_items_list(file, items_dict, ItemType.UNARY_OPS)
 
     def parse_separators(self, file, items_dict: dict) -> None:
         self.parse_items_list(file, items_dict, ItemType.SEPARATORS)

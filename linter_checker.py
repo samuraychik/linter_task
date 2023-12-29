@@ -11,7 +11,6 @@ class Linter:
         self.naming_rules = code_style[ItemType.NAMING_RULESET]
         self.separators = code_style[ItemType.SEPARATORS]
         self.binary_ops = code_style[ItemType.BINARY_OPS]
-        self.unary_ops = code_style[ItemType.UNARY_OPS]
         self.keywords = code_style[ItemType.KEYWORDS]
 
     def get_case_regex(self, case: NamingCase) -> dict:
@@ -47,7 +46,6 @@ class Linter:
                 if subroutine:
                     self.check_naming_rules(index, line.removeprefix(subroutine))
                     if not is_first_subroutine:
-                        print("я тут был")
                         self.check_subroutine_emptylines(index, last_emptylines)
                     is_first_subroutine = False
 
@@ -64,8 +62,7 @@ class Linter:
     def check_whitespace_rules(self, index: int, line: str) -> None:
         bin_status = self.check_binary_op_rules(line)
         sep_status = self.check_separators_rules(line)
-        un_status = self.check_unary_op_rules(line)
-        self.logs_errors_for_line(index, bin_status | sep_status | un_status)
+        self.logs_errors_for_line(index, bin_status | sep_status)
     
     def check_max_emptylines(self, index: int, current: int) -> None:
         errors = set()
@@ -113,21 +110,6 @@ class Linter:
                 errors.add(f"Identifier '{id_name}' "
                            f"is not in {naming_case.value}.")
         self.logs_errors_for_line(index, errors)
-
-    def check_unary_op_rules(self, line: str) -> set:
-        errors = set()
-
-        unary_ops = [unop for unop in self.unary_ops if unop in line]
-        if not unary_ops:
-            return errors
-        for unop in unary_ops:
-            matches_iter = re.finditer(r'^\w+' + re.escape(unop) + r' *\w*\d*', line)
-            for match in matches_iter:
-                whitespaces = match.group().split(unop)
-                if len(whitespaces[1]) != self.whitespace_rules[WhitespaceRule.AFTER_UNOP]:
-                    errors.add(f"After '{unop}' should be "
-                               f"{self.whitespace_rules[WhitespaceRule.AFTER_UNOP]} whitespace(s)")
-        return errors
 
     def check_separators_rules(self, line: str) -> set:
         errors = set()

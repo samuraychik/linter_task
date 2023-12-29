@@ -1,11 +1,29 @@
-procedure kek(a: integer)
+var A, B:integer; 
+    bebra:char;
+    Popa,Pisya,TRE_SHH:str;
+
 begin
 
 end
 
+procedure kek()
 
-function kek2(b: integer): integer
+
+function bebrafunction(x:integer, Sans:real)
+var 
+    b:char
+    ARTEM_IDI_NAHUI:integer
 begin
+    asdasd = sadasd
+    =
+    a+ b
+    a-b
+    3, 2, 4 = 8
+    a : b
 
+
+
+    c - b
+    - v
 end
 

@@ -10,7 +10,6 @@ begin end if then else while for to do program var function procedure mod div an
 *WHITESPACE_RULESET
 BEFORE_BINOP:1
 AFTER_BINOP:1
-AFTER_UNOP:0
 BEFORE_SEP:0
 AFTER_SEP:1
 
