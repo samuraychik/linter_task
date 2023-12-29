@@ -30,66 +30,30 @@ class LinterStyleParser:
         return items_dict
 
     def parse_whitespace_rules(self, file, items_dict: dict) -> None:
-        whitepsace_ruleset = {
+        default = {
             WhitespaceRule.BEFORE_BINOP: 1,
             WhitespaceRule.AFTER_BINOP: 1,
             WhitespaceRule.BEFORE_SEP: 0,
             WhitespaceRule.AFTER_SEP: 1,
         }
-
-        line = next(file).strip()
-        while line:
-            rule_str, value_str = line.split(":")
-            rule = get_enum_item_by_value(WhitespaceRule, rule_str)
-            value = int(value_str)
-            whitepsace_ruleset[rule] = value
-
-            try:
-                line = next(file).strip()
-            except StopIteration:
-                break
-
-        items_dict[ItemType.WHITESPACE_RULESET] = whitepsace_ruleset
+        self.parse_items_dict(file, items_dict,
+                              ItemType.WHITESPACE_RULESET, default)
 
     def parse_emptyline_rules(self, file, items_dict: dict) -> None:
-        emptyline_ruleset = {
+        default = {
+            EmptylineRule.MAX_IN_A_ROW: 1,
             EmptylineRule.BETWEEN_SUBROUTINES: 1,
             EmptylineRule.END_OF_FILE: 0,
-            EmptylineRule.MAX_IN_A_ROW: 1,
         }
-        
-        line = next(file).strip()
-        while line:
-            rule_str, value_str = line.split(":")
-            rule = get_enum_item_by_value(EmptylineRule, rule_str)
-            value = int(value_str)
-            emptyline_ruleset[rule] = value
-
-            try:
-                line = next(file).strip()
-            except StopIteration:
-                break
-
-        items_dict[ItemType.EMPTYLINE_RULESET] = emptyline_ruleset
+        self.parse_items_dict(file, items_dict,
+                              ItemType.EMPTYLINE_RULESET, default)
 
     def parse_naming_rules(self, file, items_dict: dict) -> None:
-        naming_ruleset = {
-            NamingRule.IDENTIFIER: NamingCase.PASCAL_CASE,
+        default = {
+            NamingRule.IDENTIFIER: 1,
         }
-
-        line = next(file).strip()
-        while line:
-            rule_str, value_str = line.split(":")
-            rule = get_enum_item_by_value(NamingRule, rule_str)
-            value = get_enum_item_by_value(NamingCase, value_str)
-            naming_ruleset[rule] = value
-
-            try:
-                line = next(file).strip()
-            except StopIteration:
-                break
-
-        items_dict[ItemType.NAMING_RULESET] = naming_ruleset
+        self.parse_items_dict(file, items_dict,
+                              ItemType.NAMING_RULESET, default)
 
     def parse_keywords(self, file, items_dict: dict) -> None:
         self.parse_items_list(file, items_dict, ItemType.KEYWORDS)
@@ -99,6 +63,25 @@ class LinterStyleParser:
 
     def parse_separators(self, file, items_dict: dict) -> None:
         self.parse_items_list(file, items_dict, ItemType.SEPARATORS)
+
+    def parse_items_dict(self, file,
+                         items_dict: dict,
+                         rule_type: ItemType, default: dict) -> None:
+
+        ruleset = dict(default)
+        line = next(file).strip()
+        while line:
+            rule_str, value_str = line.split(":")
+            rule = get_enum_item_by_value(ItemType, rule_str)
+            value = int(value_str)
+            ruleset[rule] = value
+
+            try:
+                line = next(file).strip()
+            except StopIteration:
+                break
+        
+        items_dict[rule_type] = ruleset
 
     def parse_items_list(self, file,
                          items_dict: dict,

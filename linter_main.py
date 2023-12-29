@@ -51,7 +51,7 @@ def main(argv=None):
 
     for file_path in file_paths:
         logger.log_new_header(os.path.basename(file_path))
-        linter.check_all_file(file_path)
+        linter.check_file(file_path)
 
 
 if __name__ == "__main__":

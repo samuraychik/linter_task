@@ -30,10 +30,10 @@ class NamingRule(Enum):
 
 
 class NamingCase(Enum):
-    SNAKE_CASE = "snake_case"
-    UPPER_SNAKE_CASE = "UPPER_SNAKE_CASE"
-    PASCAL_CASE = "PascalCase"
-    CAMEL_CASE = "camelCase"
+    SNAKE_CASE = 0
+    UPPER_SNAKE_CASE = 1
+    PASCAL_CASE = 2
+    CAMEL_CASE = 3
 
 
 def get_enum_item_by_value(enum: type, value: str):
