@@ -1,4 +1,4 @@
-from linter.linter_rules import ItemType, get_enum_item_by_value, \
+from linter.linter_rules import ItemType, get_enum_item_by_name, \
     WhitespaceRule, EmptylineRule, NamingRule
 
 
@@ -22,7 +22,7 @@ class LinterStyleParser:
                 if not line.startswith("*"):
                     continue
 
-                item_type = get_enum_item_by_value(ItemType, line[1:])
+                item_type = get_enum_item_by_name(ItemType, line[1:])
 
                 parser_method = getattr(self, self.parsers_by_type[item_type])
                 parser_method(f, items_dict)
@@ -36,7 +36,7 @@ class LinterStyleParser:
             WhitespaceRule.BEFORE_SEP: 0,
             WhitespaceRule.AFTER_SEP: 1,
         }
-        self.parse_items_dict(file, items_dict,
+        self.parse_items_dict(file, items_dict, WhitespaceRule,
                               ItemType.WHITESPACE_RULESET, default)
 
     def parse_emptyline_rules(self, file, items_dict: dict) -> None:
@@ -45,14 +45,14 @@ class LinterStyleParser:
             EmptylineRule.BETWEEN_SUBROUTINES: 1,
             EmptylineRule.END_OF_FILE: 0,
         }
-        self.parse_items_dict(file, items_dict,
+        self.parse_items_dict(file, items_dict, EmptylineRule,
                               ItemType.EMPTYLINE_RULESET, default)
 
     def parse_naming_rules(self, file, items_dict: dict) -> None:
         default = {
             NamingRule.IDENTIFIER: 1,
         }
-        self.parse_items_dict(file, items_dict,
+        self.parse_items_dict(file, items_dict, NamingRule,
                               ItemType.NAMING_RULESET, default)
 
     def parse_keywords(self, file, items_dict: dict) -> None:
@@ -65,14 +65,14 @@ class LinterStyleParser:
         self.parse_items_list(file, items_dict, ItemType.SEPARATORS)
 
     def parse_items_dict(self, file,
-                         items_dict: dict,
+                         items_dict: dict, enum: type,
                          rule_type: ItemType, default: dict) -> None:
 
         ruleset = dict(default)
         line = next(file).strip()
         while line:
             rule_str, value_str = line.split(":")
-            rule = get_enum_item_by_value(ItemType, rule_str)
+            rule = get_enum_item_by_name(enum, rule_str)
             value = int(value_str)
             ruleset[rule] = value
 

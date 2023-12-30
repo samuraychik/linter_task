@@ -1,6 +1,10 @@
 from enum import Enum
 
 
+class UnknownItemError(Exception):
+    pass
+
+
 class ItemType(Enum):
     KEYWORDS = "KEYWORDS"
     BINARY_OPS = "BINARY_OPS"
@@ -14,7 +18,6 @@ class ItemType(Enum):
 class WhitespaceRule(Enum):
     BEFORE_BINOP = "BEFORE_BINOP"
     AFTER_BINOP = "AFTER_BINOP"
-    AFTER_UNOP = "AFTER_UNOP"
     BEFORE_SEP = "BEFORE_SEP"
     AFTER_SEP = "AFTER_SEP"
 
@@ -36,7 +39,8 @@ class NamingCase(Enum):
     CAMEL_CASE = 3
 
 
-def get_enum_item_by_value(enum: type, value: str):
+def get_enum_item_by_name(enum: type, name: str):
     for item in enum.__members__.values():
-        if item.value == value:
+        if item.name == name:
             return item
+    raise UnknownItemError()
