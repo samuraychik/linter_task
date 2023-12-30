@@ -1,0 +1,36 @@
+------------------------------
+test_text.txt
+------------------------------
+Line 1: Before ',' should be 1 whitespace(s), not 0
+Line 1: Before ':' should be 1 whitespace(s), not 0
+Line 1: After ',' should be 1 whitespace(s), not 0
+Line 1: After ':' should be 1 whitespace(s), not 0
+Line 2: Before ':' should be 1 whitespace(s), not 0
+Line 2: After ':' should be 1 whitespace(s), not 0
+Line 2: Identifier 'bebra' is not in UPPER_SNAKE_CASE.
+Line 3: Before ',' should be 1 whitespace(s), not 0
+Line 3: Before ':' should be 1 whitespace(s), not 0
+Line 3: After ',' should be 1 whitespace(s), not 0
+Line 3: After ':' should be 1 whitespace(s), not 0
+Line 3: Identifier 'Popa' is not in UPPER_SNAKE_CASE.
+Line 3: Identifier 'Pisya' is not in UPPER_SNAKE_CASE.
+Line 9: Identifier 'kek' is not in UPPER_SNAKE_CASE.
+Line 11: Too many empty lines in a row - 2, limit is 1
+Line 12: Before ',' should be 1 whitespace(s), not 0
+Line 12: Before ':' should be 1 whitespace(s), not 0
+Line 12: After ',' should be 1 whitespace(s), not 0
+Line 12: After ':' should be 1 whitespace(s), not 0
+Line 12: Identifier 'bebrafunction' is not in UPPER_SNAKE_CASE.
+Line 12: Identifier 'x' is not in UPPER_SNAKE_CASE.
+Line 12: Identifier 'Sans' is not in UPPER_SNAKE_CASE.
+Line 12: Should have 1 empty line(s) between subroutines, not 2
+Line 14: Before ':' should be 1 whitespace(s), not 0
+Line 14: After ':' should be 1 whitespace(s), not 0
+Line 14: Identifier 'b' is not in UPPER_SNAKE_CASE.
+Line 15: Before ':' should be 1 whitespace(s), not 0
+Line 15: After ':' should be 1 whitespace(s), not 0
+Line 21: Before ',' should be 1 whitespace(s), not 0
+Line 21: After ',' should be 1 whitespace(s), not 0
+Line 22: Before ':' should be 0 whitespace(s), not 1
+Line 22: After ':' should be 1 whitespace(s), not 1
+Line 25: Too many empty lines in a row - 3, limit is 1

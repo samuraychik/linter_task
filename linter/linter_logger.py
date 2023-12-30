@@ -4,15 +4,13 @@ class LinterLogger:
 
     def log_new_header(self, filename: str) -> None:
         with open(self.saving_path, "a") as f:
-            f.write("\n\n")
-            f.write(filename)
-            f.write("\n")
-
-
+            self.write_line(f, "-" * 30)
+            self.write_line(f, filename)
+            self.write_line(f, "-" * 30)
 
     def log_comment(self, index, comment: str) -> None:
         with open(self.saving_path, "a") as f:
-            f.write(f"Line {index}: {comment}")
+            self.write_line(f, f"Line {index}: {comment}")
 
     def log_emptylines_eof(self, index: int,
                            actual: int, correct: int) -> None:
@@ -36,7 +34,7 @@ class LinterLogger:
                         name: str, case: str):
         self.log_comment(index,
                          f"Identifier '{name}' "
-                         f"is not in {case}.")
+                         f"is not in {case}")
 
     def log_before_item(self, index: int,
                         item: str, actual: int, correct: int) -> None:
@@ -49,3 +47,6 @@ class LinterLogger:
         self.log_comment(index,
                          f"After '{item}' should be "
                          f"{correct} whitespace(s), not {actual}")
+
+    def write_line(self, f, line: str):
+        f.write(line + "\n")

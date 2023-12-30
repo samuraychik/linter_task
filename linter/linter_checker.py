@@ -1,8 +1,8 @@
 import re
 
-from linter_rules import ItemType, \
+from linter.linter_rules import ItemType, \
     WhitespaceRule, EmptylineRule, NamingRule, NamingCase
-from linter_logger import LinterLogger
+from linter.linter_logger import LinterLogger
 
 
 class Linter:
@@ -26,14 +26,14 @@ class Linter:
         }
         return case_regex[case]
 
-    def check_file(self, filepath):
+    def check_file(self, filepath: str) -> None:
         is_first_subroutine = True
         check_var_naming = False
         curr_emptylines = 0
         last_emptylines = 0
 
         with open(filepath, "r") as f:
-            for line in enumerate(f):
+            for line in f:
                 self.index += 1
                 line = line.strip().replace("\n", "")
                 
@@ -50,9 +50,12 @@ class Linter:
                 subroutine = self.find_subroutine_at_line_start(line)
                 if subroutine:
                     self.check_naming_case(line.removeprefix(subroutine))
+
                     if not is_first_subroutine:
                         self.check_subroutine_emptylines(last_emptylines)
-                    is_first_subroutine = False
+                    else:
+                        is_first_subroutine = False
+                        check_var_naming = False
 
                 if line.lower() == "begin":
                     check_var_naming = False
@@ -109,10 +112,13 @@ class Linter:
             match = re.fullmatch(case_pattern, name)
             if not match:
                 self.logger.log_naming_case(self.index, name, 
-                                            naming_case.value)
+                                            naming_case.name)
 
     def check_binary_items(self, line: str, items: list,
                            before_correct: int, after_correct: int) -> None:
+        before_errors = set()
+        after_errors = set()
+
         binary_items = [item for item in items if item in line]
         if not binary_items:
             return
@@ -123,11 +129,16 @@ class Linter:
                 before_actual = len(whitespaces[0])
                 after_actual = len(whitespaces[1])
                 if before_actual != before_correct:
-                    self.logger.log_before_item(self.index, item, 
-                                                before_actual, before_correct)
+                    before_errors.add((item, before_actual))
                 if after_actual != after_correct:
-                    self.logger.log_after_item(self.index, item,
-                                               after_actual, after_correct)
+                    after_errors.add((item, after_actual))
+
+        for b_item, b_actual in before_errors:
+            self.logger.log_before_item(self.index, b_item, 
+                                        b_actual, before_correct)
+        for a_item, a_actual in before_errors:
+            self.logger.log_after_item(self.index, a_item, 
+                                       a_actual, after_correct)
 
     def find_subroutine_at_line_start(self, line: str) -> str:
         for subroutine in ["program ", "procedure ", "function "]:

@@ -1,5 +1,5 @@
-from linter_rules import ItemType, get_enum_item_by_value, \
-    WhitespaceRule, EmptylineRule, NamingRule, NamingCase
+from linter.linter_rules import ItemType, get_enum_item_by_value, \
+    WhitespaceRule, EmptylineRule, NamingRule
 
 
 class LinterStyleParser:
