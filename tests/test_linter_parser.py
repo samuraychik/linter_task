@@ -2,11 +2,12 @@ import os
 import sys
 import unittest
 
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                             os.path.pardir))
-
 from linter import linter_rules as lr
 from linter import linter_parser as lp
+
+
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                             os.path.pardir))
 
 
 class ParserTestCase(unittest.TestCase):
@@ -23,7 +24,7 @@ class ParserTestCase(unittest.TestCase):
         self.assertCountEqual(res[lr.ItemType.BINARY_OPS], expected)
         self.assertCountEqual(res[lr.ItemType.SEPARATORS], list())
         self.assertCountEqual(res[lr.ItemType.KEYWORDS], list())
-        
+
     def test_parse_separators(self):
         res = self.parser.parse_style_doc(
             "tests/test_files/style_docs/separators.txt")

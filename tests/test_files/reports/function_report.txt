@@ -1,0 +1,22 @@
+------------------------------
+with_function.txt
+------------------------------
+Line 1: Before ':' should be 0 whitespace(s), not 1
+Line 1: After ':' should be 1 whitespace(s), not 1
+Line 1: Identifier 'a' is not in PASCAL_CASE
+Line 3: Before ':' should be 1 whitespace(s), not 0
+Line 3: After ':' should be 1 whitespace(s), not 0
+Line 3: Identifier 'DEC_HEX' is not in PASCAL_CASE
+Line 3: Identifier 'x' is not in PASCAL_CASE
+Line 4: Before ':' should be 1 whitespace(s), not 0
+Line 4: After ':' should be 1 whitespace(s), not 0
+Line 4: Identifier 'res' is not in PASCAL_CASE
+Line 6: Before ':' should be 1 whitespace(s), not 0
+Line 6: After ':' should be 1 whitespace(s), not 0
+Line 8: Before ':' should be 1 whitespace(s), not 0
+Line 8: After ':' should be 1 whitespace(s), not 0
+Line 9: Before ':' should be 1 whitespace(s), not 0
+Line 9: After ':' should be 1 whitespace(s), not 0
+Line 12: Before ':' should be 1 whitespace(s), not 0
+Line 12: After ':' should be 1 whitespace(s), not 0
+Line 18: Should have 1 empty line(s) at the end of file, not 0

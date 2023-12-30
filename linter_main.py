@@ -5,6 +5,7 @@ import sys
 from linter import linter_checker as lc
 from linter import linter_logger as ll
 from linter import linter_parser as lp
+from linter.linter_rules import UnknownItemError
 
 
 argparser = argparse.ArgumentParser(
@@ -44,10 +45,19 @@ def main(argv=None):
             log_error(f"{path}: incorrect path value")
 
     parser = lp.LinterStyleParser()
-    style_dict = parser.parse_style_doc(style_path)
 
-    open(log_path, 'w').close() # resets the log file
+    open(log_path, 'w').close()  # resets the log file
     logger = ll.LinterLogger(log_path)
+
+    try:
+        style_dict = parser.parse_style_doc(style_path)
+    except UnknownItemError:
+        log_error(f"{style_path}: unknown item in style doc")
+        sys.exit(1)
+    except lp.ParserDictIntegrityError:
+        log_error(f"{style_path}: set of rules is not complete")
+        sys.exit(2)
+
     linter = lc.Linter(style_dict, logger)
 
     for file_path in file_paths:

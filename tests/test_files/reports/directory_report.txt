@@ -1,0 +1,125 @@
+------------------------------
+one_var_line.txt
+------------------------------
+Line 1: Before ':' should be 1 whitespace(s), not 0
+Line 1: Before ',' should be 1 whitespace(s), not 0
+Line 1: After ':' should be 1 whitespace(s), not 0
+Line 1: After ',' should be 1 whitespace(s), not 0
+Line 1: Identifier 'a1' is not in PASCAL_CASE
+Line 1: Identifier 'a2' is not in PASCAL_CASE
+Line 1: Identifier 'b1' is not in PASCAL_CASE
+Line 1: Identifier 'b2' is not in PASCAL_CASE
+Line 1: Identifier 'c1' is not in PASCAL_CASE
+Line 1: Identifier 'c2' is not in PASCAL_CASE
+Line 1: Identifier 'x' is not in PASCAL_CASE
+Line 1: Identifier 'y' is not in PASCAL_CASE
+Line 1: Identifier 'd' is not in PASCAL_CASE
+Line 1: Identifier 'dx' is not in PASCAL_CASE
+Line 1: Identifier 'dy' is not in PASCAL_CASE
+Line 3: Before ':' should be 1 whitespace(s), not 0
+Line 3: Before ',' should be 1 whitespace(s), not 0
+Line 3: After ':' should be 1 whitespace(s), not 0
+Line 3: After ',' should be 1 whitespace(s), not 0
+Line 4: Before ',' should be 1 whitespace(s), not 0
+Line 4: After ',' should be 1 whitespace(s), not 0
+Line 5: Before ':' should be 1 whitespace(s), not 2
+Line 5: After ':' should be 1 whitespace(s), not 2
+Line 5: Before ':' should be 0 whitespace(s), not 2
+Line 5: After ':' should be 1 whitespace(s), not 2
+Line 6: Before ':' should be 0 whitespace(s), not 1
+Line 6: After ':' should be 1 whitespace(s), not 1
+Line 7: Before ':' should be 0 whitespace(s), not 1
+Line 7: After ':' should be 1 whitespace(s), not 1
+Line 13: Before ':' should be 1 whitespace(s), not 0
+Line 13: After ':' should be 1 whitespace(s), not 0
+Line 14: Before ',' should be 1 whitespace(s), not 0
+Line 14: After ',' should be 1 whitespace(s), not 0
+Line 16: Should have 1 empty line(s) at the end of file, not 0
+------------------------------
+three_lines_with_vars.txt
+------------------------------
+Line 17: Before ':' should be 1 whitespace(s), not 0
+Line 17: After ':' should be 1 whitespace(s), not 0
+Line 17: Identifier 's' is not in PASCAL_CASE
+Line 18: Before ':' should be 1 whitespace(s), not 0
+Line 18: After ':' should be 1 whitespace(s), not 0
+Line 19: Before ':' should be 1 whitespace(s), not 0
+Line 19: Before ',' should be 1 whitespace(s), not 0
+Line 19: After ':' should be 1 whitespace(s), not 0
+Line 19: After ',' should be 1 whitespace(s), not 0
+Line 19: Identifier 'i' is not in PASCAL_CASE
+Line 19: Identifier 'j' is not in PASCAL_CASE
+Line 19: Identifier 'n' is not in PASCAL_CASE
+Line 22: Before ':' should be 1 whitespace(s), not 0
+Line 22: After ':' should be 1 whitespace(s), not 0
+Line 24: Before ':' should be 1 whitespace(s), not 0
+Line 24: After ':' should be 1 whitespace(s), not 0
+Line 25: Before ':' should be 1 whitespace(s), not 0
+Line 25: After ':' should be 1 whitespace(s), not 0
+Line 26: Before ':' should be 1 whitespace(s), not 0
+Line 26: After ':' should be 1 whitespace(s), not 0
+Line 29: Before ':' should be 1 whitespace(s), not 0
+Line 29: After ':' should be 1 whitespace(s), not 0
+Line 31: Before ':' should be 1 whitespace(s), not 0
+Line 31: Before ',' should be 1 whitespace(s), not 0
+Line 31: After ':' should be 1 whitespace(s), not 0
+Line 31: After ',' should be 1 whitespace(s), not 0
+Line 32: Should have 1 empty line(s) at the end of file, not 0
+------------------------------
+with_function.txt
+------------------------------
+Line 33: Before ':' should be 0 whitespace(s), not 1
+Line 33: After ':' should be 1 whitespace(s), not 1
+Line 33: Identifier 'a' is not in PASCAL_CASE
+Line 35: Before ':' should be 1 whitespace(s), not 0
+Line 35: After ':' should be 1 whitespace(s), not 0
+Line 35: Identifier 'DEC_HEX' is not in PASCAL_CASE
+Line 35: Identifier 'x' is not in PASCAL_CASE
+Line 36: Before ':' should be 1 whitespace(s), not 0
+Line 36: After ':' should be 1 whitespace(s), not 0
+Line 36: Identifier 'res' is not in PASCAL_CASE
+Line 38: Before ':' should be 1 whitespace(s), not 0
+Line 38: After ':' should be 1 whitespace(s), not 0
+Line 40: Before ':' should be 1 whitespace(s), not 0
+Line 40: After ':' should be 1 whitespace(s), not 0
+Line 41: Before ':' should be 1 whitespace(s), not 0
+Line 41: After ':' should be 1 whitespace(s), not 0
+Line 44: Before ':' should be 1 whitespace(s), not 0
+Line 44: After ':' should be 1 whitespace(s), not 0
+Line 50: Should have 1 empty line(s) at the end of file, not 0
+------------------------------
+with_two_functions.txt
+------------------------------
+Line 51: Before ':' should be 1 whitespace(s), not 0
+Line 51: Before ',' should be 1 whitespace(s), not 0
+Line 51: After ':' should be 1 whitespace(s), not 0
+Line 51: After ',' should be 1 whitespace(s), not 0
+Line 51: Identifier 'a' is not in PASCAL_CASE
+Line 51: Identifier 'b' is not in PASCAL_CASE
+Line 53: Before ':' should be 1 whitespace(s), not 0
+Line 53: Before ',' should be 1 whitespace(s), not 0
+Line 53: After ':' should be 1 whitespace(s), not 0
+Line 53: After ',' should be 1 whitespace(s), not 0
+Line 53: Identifier 'x' is not in PASCAL_CASE
+Line 53: Identifier 'y' is not in PASCAL_CASE
+Line 55: Before ':' should be 1 whitespace(s), not 0
+Line 55: Before ',' should be 1 whitespace(s), not 0
+Line 55: After ':' should be 1 whitespace(s), not 0
+Line 55: After ',' should be 1 whitespace(s), not 0
+Line 58: Before ':' should be 1 whitespace(s), not 0
+Line 58: Before ',' should be 1 whitespace(s), not 0
+Line 58: After ':' should be 1 whitespace(s), not 0
+Line 58: After ',' should be 1 whitespace(s), not 0
+Line 58: Identifier 'x' is not in PASCAL_CASE
+Line 58: Identifier 'y' is not in PASCAL_CASE
+Line 60: Before ':' should be 1 whitespace(s), not 0
+Line 60: Before ',' should be 1 whitespace(s), not 0
+Line 60: After ':' should be 1 whitespace(s), not 0
+Line 60: After ',' should be 1 whitespace(s), not 0
+Line 64: Before ',' should be 1 whitespace(s), not 0
+Line 64: After ',' should be 1 whitespace(s), not 0
+Line 65: Before ',' should be 1 whitespace(s), not 0
+Line 65: After ',' should be 1 whitespace(s), not 0
+Line 66: Before ',' should be 1 whitespace(s), not 0
+Line 66: After ',' should be 1 whitespace(s), not 0
+Line 67: Should have 1 empty line(s) at the end of file, not 0

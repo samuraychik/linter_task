@@ -1,0 +1,30 @@
+------------------------------
+three_lines_with_vars.txt
+------------------------------
+Line 1: Before ':' should be 1 whitespace(s), not 0
+Line 1: After ':' should be 1 whitespace(s), not 0
+Line 1: Identifier 's' is not in PASCAL_CASE
+Line 2: Before ':' should be 1 whitespace(s), not 0
+Line 2: After ':' should be 1 whitespace(s), not 0
+Line 3: Before ',' should be 1 whitespace(s), not 0
+Line 3: Before ':' should be 1 whitespace(s), not 0
+Line 3: After ',' should be 1 whitespace(s), not 0
+Line 3: After ':' should be 1 whitespace(s), not 0
+Line 3: Identifier 'i' is not in PASCAL_CASE
+Line 3: Identifier 'j' is not in PASCAL_CASE
+Line 3: Identifier 'n' is not in PASCAL_CASE
+Line 6: Before ':' should be 1 whitespace(s), not 0
+Line 6: After ':' should be 1 whitespace(s), not 0
+Line 8: Before ':' should be 1 whitespace(s), not 0
+Line 8: After ':' should be 1 whitespace(s), not 0
+Line 9: Before ':' should be 1 whitespace(s), not 0
+Line 9: After ':' should be 1 whitespace(s), not 0
+Line 10: Before ':' should be 1 whitespace(s), not 0
+Line 10: After ':' should be 1 whitespace(s), not 0
+Line 13: Before ':' should be 1 whitespace(s), not 0
+Line 13: After ':' should be 1 whitespace(s), not 0
+Line 15: Before ',' should be 1 whitespace(s), not 0
+Line 15: Before ':' should be 1 whitespace(s), not 0
+Line 15: After ',' should be 1 whitespace(s), not 0
+Line 15: After ':' should be 1 whitespace(s), not 0
+Line 16: Should have 1 empty line(s) at the end of file, not 0

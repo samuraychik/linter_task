@@ -2,6 +2,10 @@ from linter.linter_rules import ItemType, get_enum_item_by_name, \
     WhitespaceRule, EmptylineRule, NamingRule
 
 
+class ParserDictIntegrityError(Exception):
+    pass
+
+
 class LinterStyleParser:
     def __init__(self):
         self.parsers_by_type = {
@@ -27,6 +31,8 @@ class LinterStyleParser:
                 parser_method = getattr(self, self.parsers_by_type[item_type])
                 parser_method(f, items_dict)
 
+        if not self.check_dict_integrity(items_dict):
+            raise ParserDictIntegrityError()
         return items_dict
 
     def parse_whitespace_rules(self, file, items_dict: dict) -> None:
@@ -91,3 +97,6 @@ class LinterStyleParser:
             items_dict[item_type] = list()
         else:
             items_dict[item_type] = line.split(" ")
+
+    def check_dict_integrity(self, items: dict):
+        return len(items) == len(ItemType)

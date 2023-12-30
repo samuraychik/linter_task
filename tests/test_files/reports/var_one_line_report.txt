@@ -1,0 +1,37 @@
+------------------------------
+one_var_line.txt
+------------------------------
+Line 1: Before ',' should be 1 whitespace(s), not 0
+Line 1: Before ':' should be 1 whitespace(s), not 0
+Line 1: After ',' should be 1 whitespace(s), not 0
+Line 1: After ':' should be 1 whitespace(s), not 0
+Line 1: Identifier 'a1' is not in PASCAL_CASE
+Line 1: Identifier 'a2' is not in PASCAL_CASE
+Line 1: Identifier 'b1' is not in PASCAL_CASE
+Line 1: Identifier 'b2' is not in PASCAL_CASE
+Line 1: Identifier 'c1' is not in PASCAL_CASE
+Line 1: Identifier 'c2' is not in PASCAL_CASE
+Line 1: Identifier 'x' is not in PASCAL_CASE
+Line 1: Identifier 'y' is not in PASCAL_CASE
+Line 1: Identifier 'd' is not in PASCAL_CASE
+Line 1: Identifier 'dx' is not in PASCAL_CASE
+Line 1: Identifier 'dy' is not in PASCAL_CASE
+Line 3: Before ',' should be 1 whitespace(s), not 0
+Line 3: Before ':' should be 1 whitespace(s), not 0
+Line 3: After ',' should be 1 whitespace(s), not 0
+Line 3: After ':' should be 1 whitespace(s), not 0
+Line 4: Before ',' should be 1 whitespace(s), not 0
+Line 4: After ',' should be 1 whitespace(s), not 0
+Line 5: Before ':' should be 1 whitespace(s), not 2
+Line 5: After ':' should be 1 whitespace(s), not 2
+Line 5: Before ':' should be 0 whitespace(s), not 2
+Line 5: After ':' should be 1 whitespace(s), not 2
+Line 6: Before ':' should be 0 whitespace(s), not 1
+Line 6: After ':' should be 1 whitespace(s), not 1
+Line 7: Before ':' should be 0 whitespace(s), not 1
+Line 7: After ':' should be 1 whitespace(s), not 1
+Line 13: Before ':' should be 1 whitespace(s), not 0
+Line 13: After ':' should be 1 whitespace(s), not 0
+Line 14: Before ',' should be 1 whitespace(s), not 0
+Line 14: After ',' should be 1 whitespace(s), not 0
+Line 16: Should have 1 empty line(s) at the end of file, not 0
